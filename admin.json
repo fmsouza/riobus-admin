@@ -2,7 +2,7 @@
 	"application": {
 		"title": "RioBus",
 
-		"theme": "bootswatch-flatly",
+		"theme": "bootswatch-paper",
 
 		"roles": [ "admin", "user" ],
 		"default_role": "user",
@@ -91,7 +91,7 @@
 					"class": "nav navbar-nav navbar-right",
 					"dest_selector": "#menu",
 					"items": [
-						{ "title": "Register", "route": "register" },
+						{ "title": "Registrar", "route": "register" },
 						{ "title": "Login", "route": "login" }
 					]
 				}
@@ -100,7 +100,7 @@
 
 		"private_zone": {
 			"pages": [
-				{ "name": "home_private", "title": "Welcome {{userFullName}}!" },
+				{ "name": "home_private", "title": "Olá {{userFullName}}!" },
 				
 				{
 					"name": "itineraries",
@@ -141,10 +141,10 @@
 									"query_name": "admin_itinerary",
 									"query_params": [],
 									"fields": [
-										{ "name": "line", "title": "Linha", "required": true },
-										{ "name": "description", "title": "Descrição", "required": true },
-										{ "name": "agency", "title": "Agência", "required": true },
-										{ "name": "keywords", "title": "Palavras-chave", "required": true }
+										{ "name": "line", "title": "Linha", "type": "string", "required": true },
+										{ "name": "description", "title": "Descrição", "type": "string", "required": true },
+										{ "name": "agency", "title": "Agência", "type": "string", "required": true },
+										{ "name": "keywords", "title": "Palavras-chave", "type": "string", "required": true }
 									]
 								}
 							]
@@ -163,15 +163,15 @@
 								{
 									"name": "view",
 									"type": "data_view",
-									"title": "Users",
-									"text_if_empty": "No users yet",
+									"title": "Usuários",
+									"text_if_empty": "Ainda não há usuários",
 									"query_name": "admin_users",
 									"query_params": [],
 
 									"fields": [
-										{ "name": "profile.name", "title": "Name"},
+										{ "name": "profile.name", "title": "Nome"},
 										{ "name": "profile.email", "title": "E-mail" },
-										{ "name": "roles", "title": "Role" }
+										{ "name": "roles", "title": "Tipo" }
 									],
 
 									"insert_route": "admin.users.insert",
@@ -196,13 +196,13 @@
 											"name": "details_form",
 											"type": "form",
 											"mode": "read_only",
-											"title": "User details",
+											"title": "Detalhes do usuário",
 											"query_name": "admin_user",
 											"query_params": [],
 											"fields": [
-												{ "name": "profile.name", "title": "Name"},
+												{ "name": "profile.name", "title": "Nome"},
 												{ "name": "profile.email", "title": "E-mail", "type": "email" },
-												{ "name": "roles", "title": "Role" }
+												{ "name": "roles", "title": "Tipo" }
 											],
 											"close_route": "admin.users",
 											"back_route": "admin.users"
@@ -216,15 +216,15 @@
 											"name": "insert_form",
 											"type": "form",
 											"mode": "insert",
-											"title": "Add new user",
+											"title": "Adicionar novo usuário",
 											"submit_route": "admin.users",
 											"cancel_route": "admin.users",
 											"query_name": "users_null",
 											"query_params": [],
 											"fields": [
-												{ "name": "profile.name", "title": "Name", "required": true },
+												{ "name": "profile.name", "title": "Nome", "required": true },
 												{ "name": "profile.email", "title": "E-mail", "type": "email", "required": true },
-												{ "name": "password", "title": "Password", "input": "password", "required": true }
+												{ "name": "password", "title": "Senha", "input": "password", "required": true }
 											]
 										}
 									]
@@ -237,13 +237,13 @@
 											"name": "edit_form",
 											"type": "form",
 											"mode": "update",
-											"title": "Edit user",
+											"title": "Editar usuário",
 											"submit_route": "admin.users",
 											"cancel_route": "admin.users",
 											"query_name": "admin_user",
 											"query_params": [],
 											"fields": [
-												{ "name": "profile.name", "title": "Name", "required": true },
+												{ "name": "profile.name", "title": "Nome", "required": true },
 												{ "name": "profile.email", "title": "E-mail", "type": "email", "required": true },
 												{
 													"name": "roles",
@@ -251,9 +251,9 @@
 													"title": "Role",
 													"input": "radio",
 													"input_items": [
-														{ "value": "user", "title": "User" },
+														{ "value": "user", "title": "Usuário" },
 														{ "value": "admin", "title": "Admin" },
-														{ "value": "blocked", "title": "Blocked" }
+														{ "value": "blocked", "title": "Bloqueado" }
 													]
 												}
 											]
@@ -271,7 +271,7 @@
 							"type": "menu",
 							"class": "nav nav-stacked nav-pills",
 							"items": [
-								{ "title": "Users", "route": "admin.users" }
+								{ "title": "Usuários", "route": "admin.users" }
 							]
 						}
 					]
@@ -288,12 +288,12 @@
 									"name": "edit_form",
 									"type": "form",
 									"mode": "update",
-									"title": "Edit your profile",
+									"title": "Editar seu perfil",
 									"submit_route": "user_settings.profile",
 									"query_name": "current_user_data",
 									"query_params": [],
 									"fields": [
-										{ "name": "profile.name", "title": "Name", "required": true },
+										{ "name": "profile.name", "title": "Nome", "required": true },
 										{ "name": "profile.email", "title": "E-mail", "type": "email", "required": true },
 										{ "name": "profile.facebook", "title": "Facebook URL" },
 										{ "name": "profile.google", "title": "Google+ URL" },
@@ -313,8 +313,8 @@
 							"type": "menu",
 							"class": "nav nav-stacked nav-pills",
 							"items": [
-								{ "title": "Profile", "route": "user_settings.profile" },
-								{ "title": "Change password", "route": "user_settings.change_pass" }
+								{ "title": "Perfil", "route": "user_settings.profile" },
+								{ "title": "Trocar senha", "route": "user_settings.change_pass" }
 							]
 						}
 					]
@@ -330,7 +330,7 @@
 					"class": "nav navbar-nav",
 					"dest_selector": "#menu",
 					"items": [
-						{ "title": "Home", "route": "home_private", "icon_class": "fa fa-home" },
+						{ "title": "Início", "route": "home_private", "icon_class": "fa fa-home" },
 						{ "title": "Itinerários", "route": "itineraries" }
 					]
 				},
@@ -345,8 +345,8 @@
 						{
 							"title": "{{userEmail}}",
 							"items": [
-								{ "title": "Settings", "route": "user_settings" },
-								{ "title": "Logout", "route": "logout" }
+								{ "title": "Configurações", "route": "user_settings" },
+								{ "title": "Sair", "route": "logout" }
 							],
 							"icon_class": "fa fa-cog"
 						}
