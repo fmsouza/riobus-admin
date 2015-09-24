@@ -66,10 +66,8 @@
 
 		"private_zone": {
 			"pages": [
-				{ "name": "home_private", "title": "Olá {{userFullName}}!" },
-				
 				{
-					"name": "itineraries",
+					"name": "home_private",
 					"title": "Itinerários",
 					"roles": ["admin"],
 					"components": [
@@ -91,7 +89,12 @@
 								{ "name": "line", "value": "this.line" }
 							]
 						}
-					],
+					]
+				},
+				
+				{
+					"name": "itineraries",
+					"roles": ["admin"],
 					"pages": [
 						{
 							"name": "edit",
@@ -102,8 +105,8 @@
 									"type": "form",
 									"mode": "update",
 									"title": "Editar Itinerário",
-									"submit_route": "itineraries",
-									"cancel_route": "itineraries",
+									"submit_route": "home_private",
+									"cancel_route": "home_private",
 									"query_name": "admin_itinerary",
 									"query_params": [],
 									"fields": [
@@ -245,7 +248,7 @@
 
 				{
 					"name": "user_settings",
-					"roles": ["user", "admin"],
+					"roles": ["admin"],
 					"pages": [
 						{
 							"name": "profile",
@@ -296,8 +299,7 @@
 					"class": "nav navbar-nav",
 					"dest_selector": "#menu",
 					"items": [
-						{ "title": "Início", "route": "home_private", "icon_class": "fa fa-home" },
-						{ "title": "Itinerários", "route": "itineraries" }
+						{ "title": "Itinerários", "route": "home_private" }
 					]
 				},
 				{
