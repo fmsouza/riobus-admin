@@ -56,45 +56,11 @@
 
 		"public_zone": {
 			"pages": [
-				{
-					"name": "home_public",
-					"title": "",
-					"components": [
-						{
-							"name": "home_jumbotron",
-							"type": "jumbotron",
-							"text": "<b>This is example application built with <a href=\"http://www.meteorkitchen.com\" target=\"_blank\">meteor-kitchen</a> code generator without manual coding.</b><br />It demonstrates simple application with user account system and admin panel.<br />Source code (input file for generator) is <a href=\"https://github.com/perak/kitchen-examples/tree/master/example-admin\" target=\"_blank\">here</a>."
-						}
-					]
-				},
-				{ "name": "login", "template": "login" },
+				{ "name": "home_public", "template": "login" },
 				{ "name": "register", "template": "register" },
 				{ "name": "verify_email", "template": "verify_email", "route_params": ["verifyEmailToken"] },
 				{ "name": "forgot_password", "template": "forgot_password" },
 				{ "name": "reset_password", "template": "reset_password", "route_params": ["resetPasswordToken"] }
-			],
-
-			"components": [
-				{
-					"name": "left_menu",
-					"type": "menu",
-					"class": "nav navbar-nav",
-					"dest_selector": "#menu",
-					"items": [
-						{ "title": "Home", "route": "home_public" }
-					]
-				},
-
-				{
-					"name": "right_menu",
-					"type": "menu",
-					"class": "nav navbar-nav navbar-right",
-					"dest_selector": "#menu",
-					"items": [
-						{ "title": "Registrar", "route": "register" },
-						{ "title": "Login", "route": "login" }
-					]
-				}
 			]
 		},
 
